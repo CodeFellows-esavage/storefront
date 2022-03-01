@@ -12,9 +12,6 @@ function App() {
   return (
     <Provider store={store}>
       <Header />
-      <section className="App-header">
-        <h1>STORE FRONT!</h1>
-      </section>
       <Categories />
       <Products />
       <Footer />
