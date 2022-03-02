@@ -13,6 +13,7 @@ A web application power a mock online storefront that will allow our users to br
 ## Built With
  - React.js
  - Sass
+ - MaterialUI
  - nanoid
 
 ## Getting Started
@@ -41,10 +42,10 @@ Phase 1: Application Setup
 - [X] Material UI Components & Styling
 
 Phase 2: Shopping Cart
-- [ ] Add items to a shopping cart
-- [ ] Update quantities
+- [x] Add items to a shopping cart
+- [x] Update quantities
 - [ ] Remove items from the cart
-- [ ] Show the cart in real-time on the UI
+- [x] Show the cart in real-time on the UI
 
 Phase 3: Live Data
 - [ ] Connect the application a live API
@@ -68,3 +69,4 @@ Project Link: https://github.com/eriksavage/storefront
 - othneildrew's [Best-README-Template](https://github.com/othneildrew/Best-README-Template)
 - [React Docs](https://reactjs.org/docs/getting-started.html)
 - [Sass Documentation](https://sass-lang.com/documentation)
+- Kellen Linse, Janiel Jackson
