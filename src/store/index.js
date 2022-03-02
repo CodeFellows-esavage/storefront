@@ -3,10 +3,12 @@ import { composeWithDevTools } from "redux-devtools-extension";
 
 import categoryReducer from "./categories";
 import productReducer from "./products";
+import cartReducer from "./cart";
 
 const reducers = combineReducers({
   category: categoryReducer,
   product: productReducer,
+  cart: cartReducer,
 })
 
 //start here at create store....

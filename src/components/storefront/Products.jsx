@@ -2,6 +2,7 @@ import React from "react";
 import { connect } from "react-redux";
 import { nanoid } from "nanoid";
 import { addProduct } from "../../store/products";
+import { addToCart } from "../../store/cart";
 import ProductCard from "./ProductCard";
 
 function Products(props){
@@ -22,7 +23,7 @@ function Products(props){
   return (
     <>
       <h2>My Product List</h2>
-      {productsToDisplay.map(product => <ProductCard key={nanoid()} product={product} />)}
+      {productsToDisplay.map(product => <ProductCard key={nanoid()} addToCart={props.addToCart} product={product} />)}
     
     </>
   )
@@ -37,6 +38,7 @@ function mapStateToProps(state){
 
 const mapDispatchToProps = {
   addProduct,
+  addToCart,
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(Products);

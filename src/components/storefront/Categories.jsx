@@ -5,15 +5,13 @@ import {addCategory} from '../../store/categories.js'
 import {selectCategory} from '../../store/categories.js'
 
 function Categories(props){
-
   return(
    <div>
       <h2>Browse These Categories...</h2>
       {props.categories.map(category => 
-      <span style={{margin: 15}} key={nanoid()} onClick={() => props.selectCategory(category)}>{category.displayName}</span>
+        <span style={{margin: 15}} key={nanoid()} onClick={() => props.selectCategory(category)}>{category.displayName}</span>
       )}
    </div>
-
   )
 }
 
