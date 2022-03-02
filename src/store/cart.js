@@ -12,8 +12,18 @@ const cartReducer = (state = intialState, action) => {
 
   switch (type) {
     case 'ADD_TO_CART':
-      //write statement to check if the product is in the cart already, if it is, increment that specific item count
-      return { ...state, items: [...state.items, payload], itemCount: payload }
+      console.log('ADD TO CART PAYLOAD', payload);
+      let qty = 0;
+      for (let i = 0; i < state.items.length; i++) {
+        if (state.items[i][0] === payload.name) {
+          qty = state.items[i][1];
+          break
+        }
+      }
+      let renderArray = state.items.filter(item => item[0] !== payload.name)
+      return { ...state, items: [...renderArray, [payload.name, qty + 1]], itemCount: state.itemCount + 1 }
+    case 'REMOVE_ONE':
+      return
     default:
       return state;
   }

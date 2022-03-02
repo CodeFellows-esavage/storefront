@@ -8,6 +8,7 @@ import Typography from '@mui/material/Typography';
 
 
 function ProductCard(props){
+  console.log(props);
   return(
     <Card sx={{ maxWidth: 345 }}>
       <CardMedia
@@ -30,10 +31,9 @@ function ProductCard(props){
           {props.product.inventory}
         </Typography>
       </CardContent>
-      {/* <CardActions>
-        <Button size="small">Share</Button>
-        <Button size="small">Learn More</Button>
-      </CardActions> */}
+      <CardActions>
+        <Button onClick={()=> props.addToCart(props.product)} size="small">Add To Cart</Button>
+      </CardActions>
     </Card>
   )
 }
