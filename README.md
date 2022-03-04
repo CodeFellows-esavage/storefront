@@ -1,7 +1,7 @@
 # Mock Store Front
 
 ## Deployed URL
-- comming soon!
+https://esavage-storefront.netlify.app/
 
 
 ## About The Project
@@ -44,7 +44,7 @@ Phase 1: Application Setup
 Phase 2: Shopping Cart
 - [x] Add items to a shopping cart
 - [x] Update quantities
-- [ ] Remove items from the cart
+- [x] Remove items from the cart
 - [x] Show the cart in real-time on the UI
 
 Phase 3: Live Data
