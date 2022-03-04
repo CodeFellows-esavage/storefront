@@ -1,13 +1,13 @@
 import React from "react";
 import { connect } from "react-redux";
 import { nanoid } from "nanoid";
+import CartPreviewItem from "./CartPreviewItem";
 import Button from '@mui/material/Button';
 import Badge from "@mui/material/Badge";
 import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
 import Menu from '@mui/material/Menu';
-import MenuItem from '@mui/material/MenuItem';
 
-import { addToCart } from '../../store/cart'
+import { addToCart } from '../../store/cart';
 
 function CartPreview(props){
   console.log('CartPreview Props: ', props);
@@ -30,7 +30,7 @@ function CartPreview(props){
               onClick={handleClick}
       > CART
         <Badge badgeContent={props.itemCount} color="primary">
-          <ShoppingCartIcon color="action" />
+          <ShoppingCartIcon color="action" fontSize="large" />
         </Badge>
       </Button>
       {props.items.length > 0 && <Menu
@@ -49,10 +49,8 @@ function CartPreview(props){
         }}
       >
         {props.items.map(item =>
-          <MenuItem key={nanoid()}>{item[0]}----{item[1]}</MenuItem> 
-          )}
-        
-
+          <CartPreviewItem key={nanoid()} item={item} addToCart={addToCart}/>
+        )}
       </Menu>}
     </div>
 
@@ -62,7 +60,7 @@ function CartPreview(props){
 
 export function mapStateToProps(state){
   return {
-    items: state.cart.items,
+    items: state.cart.itemsInCart,
     itemCount: state.cart.itemCount,
   }
 }
