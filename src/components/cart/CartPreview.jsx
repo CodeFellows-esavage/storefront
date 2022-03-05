@@ -1,5 +1,5 @@
 import React from "react";
-import { connect } from "react-redux";
+import { useSelector } from "react-redux";
 import { nanoid } from "nanoid";
 import CartPreviewItem from "./CartPreviewItem";
 import Button from '@mui/material/Button';
@@ -7,10 +7,10 @@ import Badge from "@mui/material/Badge";
 import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
 import Menu from '@mui/material/Menu';
 
-import { addToCart } from '../../store/cart';
-
 function CartPreview(props){
-  console.log('CartPreview Props: ', props);
+  
+  const items = useSelector(state => state.cart.itemsInCart)
+  const itemCount = useSelector(state => state.cart.itemCount)
   
   const [anchorEl, setAnchorEl] = React.useState(null);
   const open = Boolean(anchorEl);
@@ -29,11 +29,11 @@ function CartPreview(props){
               aria-expanded={open ? 'true' : undefined}
               onClick={handleClick}
       > CART
-        <Badge badgeContent={props.itemCount} color="primary">
+        <Badge badgeContent={itemCount} color="primary">
           <ShoppingCartIcon color="action" fontSize="large" />
         </Badge>
       </Button>
-      {props.items.length > 0 && <Menu
+      {items.length > 0 && <Menu
         id="basic-menu"
         anchorEl={anchorEl}
         open={open}
@@ -48,8 +48,8 @@ function CartPreview(props){
           'aria-labelledby': 'basic-button',
         }}
       >
-        {props.items.map(item =>
-          <CartPreviewItem key={nanoid()} item={item} addToCart={addToCart}/>
+        {items.map(item =>
+          <CartPreviewItem key={nanoid()} item={item}/>
         )}
       </Menu>}
     </div>
@@ -58,15 +58,4 @@ function CartPreview(props){
   )
 }
 
-export function mapStateToProps(state){
-  return {
-    items: state.cart.itemsInCart,
-    itemCount: state.cart.itemCount,
-  }
-}
-
-const mapDispatchToProps = {
-  addToCart,
-}
-
-export default connect(mapStateToProps, mapDispatchToProps)(CartPreview);
+export default CartPreview;
